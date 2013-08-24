@@ -8,6 +8,37 @@ namespace Net_Neuralab_Utilities
 {
     class TextStringUtils
     {
+        // Metoda koju sam koristio u svojoj igri Falls of Balls, napravljenoj u Unity3D. Više informacija u PDF-u
+        // Provjerava postoji li slovo t u riječi w i puni property IncomepleteWord.
+        // IncomepleteWord = "___________" - dužina ovisi o random zadanoj riječi tijekom igranja.
+        // Ako zadana riječ sadrži slovo, property IncompleteWord se mijenja tako da se umjesto znaka '_'
+        // postavi dotično slovo na prikladna mjesta. Npr: _o__o_o__o (riječ dobrovoljno i slovo o)
+        // Mozda nije najkorisnija util metoda, ali je zabavna :)
+        
+        public void StringCheck(string t, string w)
+	    {
+    		string word = w;
+            string chr = t;
+            List<int> charPositions = new List<int>();
+            int charPosition = 0;
+            int startIndex = 0;
+    
+            while (word.IndexOf(chr, startIndex) >= 0)
+            {
+                charPosition = word.IndexOf(chr, startIndex);
+                charPositions.Add(charPosition);
+                startIndex = charPosition + 1;
+            }
+    
+            StringBuilder sb = new StringBuilder(Game.Session.IncompleteWord);
+            
+            foreach (int position in charPositions)
+            {
+    			sb[position] = chr.ToCharArray(0,1)[0];
+            }
+            Game.Session.IncompleteWord = sb.ToString();
+    	}
+    	
         //Static method will generate a random string in given length from hardcoded dictionary//////////////////////////////////////
 
         public static string generateRandomString(int length)
