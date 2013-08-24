@@ -18,7 +18,7 @@ namespace Net_Neuralab_Utilities
         public void StringCheck(string t, string w)
     	{
     		string word = w;
-			string chr = t;
+    		strring chr = t;
 	    	List<int> charPositions = new List<int>();
 			int charPosition = 0;
 			int startIndex = 0;
