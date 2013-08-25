@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DateTimeUtils.cs" />
+    <Compile Include="ftp.cs" />
     <Compile Include="GoogleAppsSpreadsheetUtils.cs" />
+    <Compile Include="localData.cs" />
     <Compile Include="MathAndNumbersUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextStringUtils.cs" />
